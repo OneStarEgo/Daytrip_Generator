@@ -22,16 +22,15 @@ def give_resturant():
 
 def give_transportation():
      random_mode_of_transportation = random.choice(mode_of_transportation)
-     print(f"We have chosen {random_mode_of_transportation} for your transportation!")
-     user_input = "y"
-     while user_input != "n":
-          user_input = input("Does this sound good? y/n: ")
-          if user_input == "n":
+     good_user_input = "y"
+     while good_user_input == "y":
+          user_input = input(f"We have chosen {random_mode_of_transportation} for your transportation! Sound good? y/n: ")
+          if good_user_input != user_input:
                random_mode_of_transportation = random.choice(mode_of_transportation)
-               print("Oh, sorry you dont like that transportation option. No worries, we can try something else!")
-               print(input(f"How about {random_mode_of_transportation} ? y/n: "))
-          
-               return random_mode_of_transportation
+               print(input(f"Oh, sorry you dont like that transportation option. No worries, we can try something else! How about {random_mode_of_transportation}? y/n: "))
+               continue
+     else:
+          print("Awsome! Glad we got that figured out. Lets move on")
 
 def give_entertainment():
      random_form_of_entertainment = random.choice(form_of_entertainment)
