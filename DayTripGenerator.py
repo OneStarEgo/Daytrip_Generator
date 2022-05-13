@@ -12,13 +12,28 @@ def welcome_user():
 import random
 def give_destination():
      random_destination = random.choice(destination_choices)
-     print(f"We have chosen {random_destination} for your destination! Does this sound good? Enter y/n:")
-     return random_destination
-     
+     good_user_input = "y"
+     while good_user_input == "y":
+          user_input = input(f"We have chosen {random_destination} for your destination! Sound good? y/n: ")
+          if good_user_input != user_input:
+               random_destination = random.choice(destination_choices)
+               continue
+          else:
+               print("Awesome! Glad we got that figured out. Lets move on")
+               
+               return random_destination
+
 def give_resturant():
      random_resturant = random.choice(resturant_choices)
-     print(f"We have chosen {random_resturant} for your resturant! Does this sound good? Enter y/n:")
-     return random_resturant
+     good_user_input = "y"
+     while good_user_input == "y":
+          user_input = input(f"We have chosen {random_resturant} for your resturant! Sound good? y/n: ")
+          if good_user_input != user_input:
+               random_resturant = random.choice(resturant_choices)
+               continue
+          else:
+               print("Awesome! Glad we got that figured out. Lets move on")
+               return random_resturant
 
 def give_transportation():
      random_mode_of_transportation = random.choice(mode_of_transportation)
@@ -27,17 +42,25 @@ def give_transportation():
           user_input = input(f"We have chosen {random_mode_of_transportation} for your transportation! Sound good? y/n: ")
           if good_user_input != user_input:
                random_mode_of_transportation = random.choice(mode_of_transportation)
-               print(input(f"Oh, sorry you dont like that transportation option. No worries, we can try something else! How about {random_mode_of_transportation}? y/n: "))
                continue
-     else:
-          print("Awsome! Glad we got that figured out. Lets move on")
+          else:
+               print("Awesome! Glad we got that figured out. Lets move on")
+               return random_mode_of_transportation
 
 def give_entertainment():
      random_form_of_entertainment = random.choice(form_of_entertainment)
-     print(f"We have chosen {random_form_of_entertainment} for your entertainment! Does this sound good? Enter y/n:")
-     return random_form_of_entertainment
+     good_user_input = "y"
+     while good_user_input == "y":
+          user_input = input(f"We have chosen {random_form_of_entertainment} for your entertainment! Sound good? y/n: ")
+          if good_user_input != user_input:
+               random_form_of_entertainment = random.choice(form_of_entertainment)
+               continue
+          else:
+               print("Awesome! Glad we got that figured out. Lets move on")
+               return random_form_of_entertainment
+random_destination = give_destination()
 
-# user input
-
-welcome_user()
+give_destination()
+give_resturant()
 give_transportation()
+give_entertainment()
