@@ -1,8 +1,8 @@
 # Lists for destinations, resturants, modes of transportation, and entertainment
-destination_choices = ["Hawaii", "Fiji", "Tulum", "Barbados"]
-resturant_choices = ["Italian", "Mexican", "Bbq", "Seafood"]
-mode_of_transportation = ["Car", "Bus", "Train", "Scooters"]
-form_of_entertainment = ["Concert", "Hiking", "Water Park", "Sightseeing"]
+destination_choices = ["Hawaii", "Fiji", "Tulum", "Barbados", "Germany"]
+resturant_choices = ["Italian", "Mexican", "Bbq", "Seafood", "Greek"]
+mode_of_transportation = ["Car", "Bus", "Train", "Scooters", "Carriage"]
+form_of_entertainment = ["Concert", "Hiking", "Water Park", "Sightseeing","Diving"]
 
 # Greeting
 def welcome_user():
@@ -56,11 +56,11 @@ def give_entertainment():
                random_form_of_entertainment = random.choice(form_of_entertainment)
                continue
           else:
-               print("Awesome! Glad we got that figured out. Lets move on")
+               print("Awesome! Glad we got that figured out. Your trip is all planned! ")
                return random_form_of_entertainment
-random_destination = give_destination()
+
 
 give_destination()
 give_resturant()
-give_transportation()
 give_entertainment()
+give_transportation()
