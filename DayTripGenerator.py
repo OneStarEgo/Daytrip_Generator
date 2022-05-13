@@ -28,8 +28,9 @@ def give_transportation():
           user_input = input("Does this sound good? y/n: ")
           if user_input == "n":
                random_mode_of_transportation = random.choice(mode_of_transportation)
-               print(f"Oh, sorry you dont like that transportation option. No worries, we can try something else! How about {random_mode_of_transportation}")
-          elif user_input == input("How about now? y/n: "):
+               print("Oh, sorry you dont like that transportation option. No worries, we can try something else!")
+               print(input(f"How about {random_mode_of_transportation} ? y/n: "))
+          
                return random_mode_of_transportation
 
 def give_entertainment():
