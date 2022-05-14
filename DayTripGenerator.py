@@ -2,7 +2,7 @@
 destination_choices = ["Hawaii", "Fiji", "Tulum", "Barbados", "Germany"]
 resturant_choices = ["Italian", "Mexican", "Bbq", "Seafood", "Greek"]
 mode_of_transportation = ["Car", "Bus", "Train", "Scooters", "Carriage"]
-form_of_entertainment = ["Concert", "Hiking", "Water Park", "Sightseeing","Diving"]
+form_of_entertainment = ["Skydiving", "Hiking", "Biking", "Sightseeing","Diving"]
 
 # Greeting
 def welcome_user():
@@ -26,6 +26,7 @@ def give_destination():
           else:
                print("Sorry, I don't recognize that input, please try again.")
                continue
+
 
 
 def give_resturant():
@@ -64,6 +65,7 @@ def give_transportation():
                continue
 
 
+
 def give_entertainment():
      random_form_of_entertainment = random.choice(form_of_entertainment)
      good_user_input = "y"
@@ -81,23 +83,36 @@ def give_entertainment():
                print("Sorry, I don't recognize that input, please try again.")
                continue
 
+
 def day_trip():
-     destination_result = give_destination()
-     resturant_result = give_resturant()
-     entertainment_result = give_entertainment()
-     transportation_result = give_transportation()
-     print(f""""The trip we have generated for you is as follows:
-     destination: {destination_result}
-     Transportation: {transportation_result}
-     Resturant: {resturant_result}
-     Entertainment: {entertainment_result}
-     """)
+     print(f"""The trip we have generated for you is as follows:
+destination: {destination_result}
+Transportation: {transportation_result}
+Resturant: {resturant_result}
+Entertainment: {entertainment_result}""")
+
+def get_confirmation():
+     good_user_input = "y"
+     bad_user_input = "n"
+     invalid_input = True
+     while invalid_input:
+          user_input = input("Would you like to finilize this trip? y/n: ")
+          if user_input == good_user_input:
+               print(f"""Congrats! You're headed to {destination_result} by {transportation_result}, where you will spend the day {entertainment_result}.
+                You will end the night dining at a renown {resturant_result} resturant. Have fun!""")
+          elif user_input == bad_user_input:
+               print(f"")
+               return
+          else:
+               print("Sorry, I don't recognize that input, please try again.")
+               continue
 
 
 welcome_user()
-give_destination()
-give_resturant()
-give_transportation()
-give_entertainment()
-print(f"Congrats! We have completed generating your day trip. Now lets just confirm that this is the trip you wanted.")
+destination_result = give_destination()
+resturant_result = give_resturant()
+transportation_result = give_transportation()
+entertainment_result = give_entertainment()
+print(f"That does it! We have completed generating your day trip. Now lets confirm that this is the trip you wanted.")
 day_trip()
+get_confirmation()
