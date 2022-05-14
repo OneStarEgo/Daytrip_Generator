@@ -22,12 +22,11 @@ def give_destination():
                return random_destination
           elif user_input == bad_user_input:
                print("Oh, sorry to hear that. No worries, we can try something else... ")
-               return give_destination
+               return give_destination()
           else:
                print("Sorry, I don't recognize that input, please try again.")
                continue
-dest_result = give_destination()
-print(f"You have chosen {dest_result}!")
+
 
 def give_resturant():
      random_resturant = random.choice(resturant_choices)
@@ -45,8 +44,7 @@ def give_resturant():
           else:
                print("Sorry, I don't recognize that input, please try again.")
                continue
-rest_result = give_resturant()
-print(f"You have chosen {rest_result}!")
+
 
 def give_transportation():
      random_mode_of_transportation = random.choice(mode_of_transportation)
@@ -64,8 +62,7 @@ def give_transportation():
           else:
                print("Sorry, I don't recognize that input, please try again.")
                continue
-trans_result = give_transportation()
-print(f"You have chosen {trans_result}!")
+
 
 def give_entertainment():
      random_form_of_entertainment = random.choice(form_of_entertainment)
@@ -83,5 +80,24 @@ def give_entertainment():
           else:
                print("Sorry, I don't recognize that input, please try again.")
                continue
-ent_result = give_entertainment()
-print (f"You chose {ent_result}!")
+
+def day_trip():
+     destination_result = give_destination()
+     resturant_result = give_resturant()
+     entertainment_result = give_entertainment()
+     transportation_result = give_transportation()
+     print(f""""The trip we have generated for you is as follows:
+     destination: {destination_result}
+     Transportation: {transportation_result}
+     Resturant: {resturant_result}
+     Entertainment: {entertainment_result}
+     """)
+
+
+welcome_user()
+give_destination()
+give_resturant()
+give_transportation()
+give_entertainment()
+print(f"Congrats! We have completed generating your day trip. Now lets just confirm that this is the trip you wanted.")
+day_trip()
