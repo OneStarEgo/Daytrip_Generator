@@ -129,7 +129,7 @@ def get_confirmation():
           user_input = input("Would you like to finilize this trip? y/n: ")
           if user_input == good_user_input:
                print(f"""Congrats! You're headed to {destination_result} by {transportation_result}, where you will spend the day {entertainment_result}.
-                You will end the night dining at a renown {resturant_result} resturant. Have fun!""")
+                You will end the night dining at a renown {restaurant_result} restaurant. Have fun!""")
           elif user_input == bad_user_input:
                print("Oh, im sorry you didn't like your trip")
                break
@@ -143,6 +143,10 @@ destination_result = give_destination()
 restaurant_result = give_restaurant()
 transportation_result = give_transportation()
 entertainment_result = give_entertainment()
+print(f"That does it! We have completed generating your day trip. Now lets confirm that this is the trip you wanted.")
+day_trip()
+get_confirmation()
+ask_for_corrections()
 print(f"That does it! We have completed generating your day trip. Now lets confirm that this is the trip you wanted.")
 day_trip()
 get_confirmation()
