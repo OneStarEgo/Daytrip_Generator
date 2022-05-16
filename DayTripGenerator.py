@@ -7,6 +7,7 @@ form_of_entertainment = ["Skydiving", "Hiking", "Biking", "Sightseeing","Diving"
 # Greeting
 def welcome_user():
      print("Welcome to the Day Trip Generator! Lets begin planning your trip?")
+     give_destination()
 
 # Generate random selections
 import random
@@ -93,35 +94,42 @@ Entertainment: {entertainment_result}""")
 
 
 def ask_for_corrections():
-     bad_dest = "Destination"
-     bad_rest = "Restaurant"
-     bad_trans = "Transport"
-     bad_ent = "Entertainment"
+     reroll_destination = "1"
+     reroll_transportation = "2"
+     reroll_restaurant = "3"
+     reroll_entertainment = "4"
+     good_user_input = "y"
+     bad_user_input = "n"
      invalid_input = True
      while invalid_input:
-          user_input = input("Please type what you'd like to change: ")
-          if user_input == bad_dest:
-               print("Okay, lets get you a new destination!")
-               return give_destination()
-          elif user_input == bad_rest:
+          user_input = input("""Please type
+          '1' for a new destination
+          '2' for a new mode of transportation
+          '3' for a new restaurant
+          '4' for a new form of entertainment
+          what would you like to change: """)
+          if user_input == reroll_destination:
+               destination_result = random.choice(destination_choices)
+               print(f"Okay, your new destination is {destination_result}!")
+               return destination_result
+          elif user_input == reroll_transportation:
+               transportation_result = random.choice(mode_of_transportation)
                print("Okay, lets get you a new restaurant!")
-               return give_restaurant()
-          elif user_input == bad_trans:
+               return transportation_result
+          elif user_input == reroll_restaurant:
+               restaurant_result = random.choice(restaurant_choices)
                print("Okay, lets get you a new mode of transportation!")
-               return give_transportation()
-          elif user_input == bad_ent:
+               return restaurant_result
+          elif user_input == reroll_entertainment:
+               entertainment_result = random.choice(form_of_entertainment)
                print("Okay, lets get you a new form of entertainment!")
-               return give_entertainment()
+               return entertainment_result
           else:
                print("Sorry, I don't recognize that input, please try again.")
                continue
 
 
 def get_confirmation():
-     bad_dest = "Destination"
-     bad_rest = "Resturant"
-     bad_trans = "Transport"
-     bad_ent = "Entertainment"
      good_user_input = "y"
      bad_user_input = "n"
      invalid_input = True
@@ -132,6 +140,7 @@ def get_confirmation():
                 You will end the night dining at a renown {restaurant_result} restaurant. Have fun!""")
           elif user_input == bad_user_input:
                print("Oh, im sorry you didn't like your trip")
+               ask_for_corrections()
                break
           else:
                print("Sorry, I don't recognize that input, please try again.")
@@ -146,8 +155,8 @@ entertainment_result = give_entertainment()
 print(f"That does it! We have completed generating your day trip. Now lets confirm that this is the trip you wanted.")
 day_trip()
 get_confirmation()
-ask_for_corrections()
+# ask_for_corrections()
 print(f"That does it! We have completed generating your day trip. Now lets confirm that this is the trip you wanted.")
 day_trip()
 get_confirmation()
-ask_for_corrections()
+# ask_for_corrections()
